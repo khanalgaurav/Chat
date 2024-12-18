@@ -9,14 +9,16 @@ import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
 import { LuLoader } from "react-icons/lu";
 import { Toaster } from "react-hot-toast";
+import { useThemeStore } from "./store/themeStore";
 
 type Props = {};
 
 const App = (props: Props) => {
   const { checkAuth, isCheckingAuth, authUser } = useAuthStore();
+  const { theme } = useThemeStore();
   useEffect(() => {
     checkAuth();
-  }, []);
+  }, [checkAuth]);
   if (isCheckingAuth) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
@@ -28,7 +30,7 @@ const App = (props: Props) => {
     );
   }
   return (
-    <div>
+    <div data-theme={theme}>
       <Navbar />
       <Routes>
         <Route

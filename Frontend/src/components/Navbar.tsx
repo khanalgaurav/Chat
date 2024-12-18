@@ -7,14 +7,14 @@ type Props = {};
 const Navbar = (props: Props) => {
   const { logout, authUser } = useAuthStore();
   return (
-    <div className="border border-red-400 ">
+    <div className=" shadow-sm shadow-gray-700">
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <Link to={"/"} className="text-lg md:text-xl">
             Fiscord | Just Messages
           </Link>
         </div>
-        <div className="flex-none text-3xl gap-5 hidden md:block">
+        <div className="text-3xl gap-5 hidden md:flex">
           <Link to={"/settings"} className="btn">
             <FiSettings />
             Settings
